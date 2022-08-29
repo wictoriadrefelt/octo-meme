@@ -1,1 +1,4 @@
-///// TEXT HERE FOR FUN 
+Start up files - 
+
+
+npm init
