@@ -1,8 +1,7 @@
 import express from 'express'; 
 import { createServer } from "http";
 import { Server } from 'socket.io'
-import {formatMessage} from './utils/messages.js'
-
+//import {formatMessage} from './utils/messages.js'
 
 
 
@@ -13,6 +12,7 @@ const nameOfBot = 'Admin'
 const app = express(); 
 const PORT = 3006
 const server = createServer(app);
+app.use('/', express.static('./Client'))
 
 const io = new Server(server)
 
