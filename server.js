@@ -18,7 +18,10 @@ const io = new Server(server)
 
 
 // api https://api.flaticon.com/v3/docs/index.html
-
+// use some random icons 
+// save api call to list 
+// loop through list with math.random to get random icons 
+// in chat
 
 server.listen(PORT, () => {
     console.log(`server running on port: ${PORT}`)
