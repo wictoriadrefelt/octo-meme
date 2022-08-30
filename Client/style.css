@@ -2,4 +2,18 @@
     box-sizing: border-box;
     margin: 0px; 
     padding: 0px; 
+    font-family:'blue-screen2';
 }
+
+
+@font-face {
+    font-family: blue-screen;
+    src: url('blueScreenFont.ttf');
+}
+
+@font-face {
+    font-family: blue-screen2;
+    src: url('blueScreenFont2.ttf');
+}
+
+

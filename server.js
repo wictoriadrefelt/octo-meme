@@ -12,8 +12,8 @@ const nameOfBot = 'Admin'
 const app = express(); 
 const PORT = 3006
 const server = createServer(app);
-app.use('/', express.static('./Client'))
 
+app.use('/', express.static('./Client'))
 const io = new Server(server)
 
 
