@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="bluescreen.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -79,7 +81,7 @@
                     <div class="singleChat text">
                         <div class="sentMsg"><h3 id="sender" class="text">Victor//</h3>
                         <h3 id="msg" class="text">Hej på er alla i rummet</h3></div>
-                        <h6 id="timestamp" class="text">10:35</h6>
+                        <h6 id="timestamp" class="numbers">10:35</h6>
                     </div>
                     <div class="singleChat text">
                         <div class="sentMsg"><h3 id="sender" class="text">PuffyQueen//</h3>
@@ -106,11 +108,15 @@
         </div>
         <br>
         <br>
-        <h3 class="text">
-            
-            Technical information:
-            ### STOP: 0x000004e (0x0090009, 0x00090900, 0x09000909)
-        </h3>    
+        <div class="flexRow">
+            <h3 class="text">
+                                Technical information:
+                ### STOP: </h3>    
+                <h3 class="numbers">
+                    0x000004e (0x0090009, 0x00090900, 0x09000909)
+                </h3>
+            </div>
+        
     </main>
 </body>
 </html>
