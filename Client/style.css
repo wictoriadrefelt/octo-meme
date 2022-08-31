@@ -70,3 +70,13 @@ h2{
 span {
     font-size: 30px;
 }
+
+
+input[type=text] {
+    background-color: black;
+    border: black;
+    color: white;
+    height: 60px;
+    font-size: 20px;
+    outline: none; 
+  }

@@ -3,13 +3,13 @@ import { createServer } from "http";
 import { Server } from 'socket.io'
 
 import { DateTime } from 'luxon'
+import { messageForm } from './utils/output.js';
 
 
 
 
 
-
-
+const admin = 'Admin'
 
 
 const app = express(); 
@@ -25,22 +25,22 @@ const io = new Server(server)
 // connection - reserved keyword from io
 io.on('connection', (socket) => {
 
-    socket.emit('message', 'Hello and welcome')
+    socket.emit('message', messageForm(admin, 'Hello and welcome'))
 
     // in use for entering chat? 
-    socket.broadcast.emit('message', 'Someone joined')
+    socket.broadcast.emit('message', messageForm(admin, 'Someone joined'))
 
 
     // 
     socket.on('messageFromChat', (message) => {
-        socket.emit('message', message)
+        socket.emit('message', messageForm(admin, message))
     } )
     
 
 
     // when user leaves chat
     socket.on('disconnect', () => {
-        io.sockets.emit('message', 'Someone left the chat')
+        io.sockets.emit('message',  messageForm(admin, 'Someone left the chat'))
     })
 
 
