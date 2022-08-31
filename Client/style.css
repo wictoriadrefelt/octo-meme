@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0px; 
     padding: 0px; 
-    font-family:'blue-screen2';
+    
 }
 
 
@@ -16,4 +16,68 @@
     src: url('blueScreenFont2.ttf');
 }
 
+body{
+    background-color: black;
+    color: white; 
+    font-family:'blue-screen2'; 
+}
 
+
+.front-page-container {
+    background-color: black;
+    color: white;
+    min-width: 100vw;
+   
+}
+
+.displayTime {
+    margin-top: 30px; 
+    margin-left: 30px; 
+    font-size: 20px;
+    font-weight: 100;
+}
+
+h2{
+    margin-top: 30px; 
+    margin-left: 30px; 
+    font-size: 20px;
+    font-weight: 100;
+}
+
+
+
+.error {
+    position: fixed;
+    bottom: 0;
+    height: 70px; 
+    width: 100%; 
+    margin-left: 30px;
+}
+
+
+.sys {
+    display:flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    width: 90%;
+    margin-left: 30px;
+}
+
+.userLogin {
+    margin-left: 20px;
+    margin-top: 90px;
+}
+
+span {
+    font-size: 30px;
+}
+
+
+input[type=text] {
+    background-color: black;
+    border: black;
+    color: white;
+    height: 60px;
+    font-size: 20px;
+    outline: none; 
+  }
