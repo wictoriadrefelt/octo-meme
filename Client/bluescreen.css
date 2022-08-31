@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+    margin: 0px; 
+    padding: 0px; 
+    font-family:'blue-screen2';
+    /* font-family: 'blue-screen'; */
+}
+body {
+    background-color: blue;
+}
+@font-face {
+    font-family: blue-screen;
+    src: url('blueScreenFont.ttf');
+}
+@font-face {
+    font-family: blue-screen2;
+    src: url('blueScreenFont2.ttf');
+}
+#headerContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+#headerBox {
+    display: flex;
+    justify-content: center;
+}
+.text {
+    color: white;
+}
+.header {
+    background-color: darkgray;
+    color: blue;
+}
+.sideContainer {
+    border: solid;
+    border-color: white;
+    height:100%;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+.middleContainer {
+    border: solid;
+    border-color: white;
+    height: 100%;
+    min-width: 600px;
+    max-width: 70%;
+}
+#bigContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    height: 45vh;
+}
+#chatContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+#boxForChats {
+    height: 80%;
+    width: 100%;
+    border-bottom: solid;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#userContainer {
+    height: 50%;
+    border-bottom: solid;
+    flex-direction: column;
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}
+#user {
+    height: 80%;
+    border: solid;
+    border-color: aquamarine;
+}
+#roomContainer {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 20px;
+}
+.addBtn {
+    width: 100%;
+    height: 20px;
+    background-color: blue;
+    width: 60%;
+    border: none;
+    transition-duration: 0.4s;
+}
+.addBtn:hover {
+    background-color: darkgray;
+    cursor: pointer;
+}
+#roomInput, #userInput {
+    background-color: blue;
+    border: solid;
+    border-color: white;
+    width: 100%;
+    display: flex;
+    color: white;
+}
+.singleRoom:hover {
+    cursor: pointer;
+    background-color: darkcyan;
+}
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+::placeholder { 
+    color: white
+}
+#answerbox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20%;
+}
+#answerInput {
+    height: 40px;
+    width: 80%;
+    background-color: blue;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#sendBtn {
+    width: 10%;
+    min-width: 60px;
+}
+.singleChat {
+    display: flex;
+    justify-content: space-between;
+}
+.singleChat:hover {
+    background-color: darkcyan;
+    cursor: pointer;
+}
+.sentMsg {
+    display: flex;
+}
