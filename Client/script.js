@@ -9,7 +9,7 @@ const userNameBtn = document.getElementById('userNameBtn')
 
 socket.on('message', (message) =>{
     console.log(message)
-   // messageOutput(message)
+   messageOutput(message)
     
 })
 
@@ -23,7 +23,7 @@ socket.on('message', (message) =>{
 
 let joinedRoom = ''
 
-/* 
+
 // get value from input field 
 sendBtn.addEventListener('click', (e) => {
     e.preventDefault(); 
@@ -36,9 +36,11 @@ sendBtn.addEventListener('click', (e) => {
     socket.emit('messageFromChat', msg)   
     messageToSend.value = " ";
 })
- */
 
 
+
+// only works when other functions are commented out. 
+// perhaps different js files? 
 userNameBtn.addEventListener('click', (e) => {
     // prevents the default behaviour when submitting a form
     e.preventDefault(); 
