@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,59 +10,71 @@
     <script defer src="script.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <div id="headerContainer">
-            <div id="headerBox">
+          <!--   <div id="headerBox">
                 <h3 class="header">Windows</h3>
             </div>
             <br>
-            <h3 class="text">A problem has been detected and Windows has been shutdown to prevent damage to your computer </h3>
+            <h3 class="text">A problem has been detected and Windows has been shutdown to prevent damage to your
+                computer </h3>
             <br>
             <h3 class="text">
                 PFN_LIST_CORRUPT
             </h3>
             <h3 class="text">
                 SYSTEM_SERVICE_EXCEPTION
-                
+
             </h3>
             <h3 class="text">
                 USER_APPERANCE_TOO_UGLY
-                
-            </h3>       
+
+            </h3>
             <h3 class="text">
                 IRQL_NOT_LESS_OR_EQUAL
-                
-            </h3>  
+
+            </h3>
             <br>
             <h3 class="text">Press any key to terminate the application_</h3>
-        </h3>
-        <br>
-        
-        <h3 class="text">If this is the first time you have seen this Stop error screen, restart your computer and the solve the PFN_list-thingy problem. press F8 to select Advanced Setup Options and then select Safe Mode, it will probably not
-             work but don't knock it till you. SYSTEM_SERVICE_EXCEPTION is nothing to do about, just burn your computer. Maybe consider to go for a plastic surgery for problem no.3. I have no idea what the last problem is but the SYSTEM_SERVICE_EXCEPTION solution should work for that to.
-            
-            If problems continue, disable or remove yourself and any newly installed hardware or software. Disable BIOS memory options such as caching or shadowing, they cannot do anything about your face anyway.  
-        </h3>
-        <br>
-    </div>
-</header>
-<main>
-    <div id="bigContainer">
-        <div class="sideContainer">
-            <div id="userContainer" class="text">
-                <div class="user">
-                    <h3 class="singleRoom">Agata</h3>
-                    <h3 class="singleRoom">1337/Kalle</h3>
-                    <h3 class="singleRoom">Victor</h3>
-                    <h3 class="singleRoom">PuffyQueen</h3>
-                    <h3 class="singleRoom">Kent-Olof</h3>
-                </div>
-                <div class="input">
-                    <input type="text" placeholder=" Write your name here" id="userInput" class="text">
-                    <button id="addUserBtn" class="addBtn text">Add new user</button>
-                </div>
+            </h3>
+            <br>
+            <div class="flexRow">
+                <h3 class="text">If this is the first time you have seen this Stop error screen, restart your computer
+                    and the solve the PFN_list-thingy problem. press F8 to select Advanced Setup Options and then select
+                    Safe Mode, it will probably not
+                    work but don't knock it till you. SYSTEM_SERVICE_ EXCEPTION is nothing to do about, just burn your
+                    computer. Maybe consider to go for a plastic surgery for problem no.three. I have no idea what the
+                    last problem is but the SYSTEM_SERVICE_EXCEPTION solution should work for that to.
+
+                    If problems continue, disable or remove yourself and any newly installed hardware or software.
+                    Disable BIOS memory options such as caching or shadowing, they cannot do anything about your face
+                    anyway.
+                </h3>
             </div>
+            <br>
+        </div>
+    </header> -->
+    <main>
+
+        <button type="button" class="collapsible"></button>
+        <div id="bigContainer">
+
+            <div class="sideContainer">
+                <div id="userContainer" class="text">
+                    <div class="user">
+                        <h3 class="singleRoom">Agata</h3>
+                        <h3 class="singleRoom">1337/Kalle</h3>
+                        <h3 class="singleRoom">Victor</h3>
+                        <h3 class="singleRoom">PuffyQueen</h3>
+                        <h3 class="singleRoom">Kent-Olof</h3>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder=" Write your name here" id="userInput" class="text">
+                        <button id="addUserBtn" class="addBtn text">Add new user</button>
+                    </div>
+                </div>
                 <div id="roomContainer" class="text">
                     <div class="room">
                         <h3 class="singleRoom">Slottet</h3>
@@ -71,30 +84,38 @@
                     </div>
                     <div class="input">
                         <input type="text" placeholder=" Write a room here" id="roomInput" class="text">
-                    <button id="addRoomBtn" class="addBtn text">Add new room</button>
+                        <button id="addRoomBtn" class="addBtn text">Add new room</button>
                     </div>
                 </div>
             </div>
-        <div class="middleContainer" class="text">
-            <div id="chatContainer" class="text">
-                <div id="boxForChats" class="text">
-                    <div class="singleChat text">
-                        <div class="sentMsg"><h3 id="sender" class="text">Victor//</h3>
-                        <h3 id="msg" class="text">Hej på er alla i rummet</h3></div>
-                        <h6 id="timestamp" class="numbers">10:35</h6>
+            <div class="middleContainer" class="text">
+                <div id="chatContainer" class="text">
+                    <div id="boxForChats" class="text">
+                        <div class="singleChat text">
+                            <div class="sentMsg">
+                                <h3 id="sender" class="text">Victor//</h3>
+                                <h3 id="msg" class="text">Hej på er alla i rummet</h3>
+                            </div>
+                            <h6 id="timestamp" class="numbers">10:35</h6>
+                        </div>
+                        <div class="singleChat text">
+                            <div class="sentMsg">
+                                <h3 id="sender" class="text">PuffyQueen//</h3>
+                                <h3 id="msg" class="text">Potatis</h3>
+                            </div>
+                            <h6 id="timestamp" class="text">10:37</h6>
+                        </div>
+                        <div class="singleChat text">
+                            <div class="sentMsg">
+                                <h3 id="sender" class="text">Kent-Olof//</h3>
+                                <h3 id="msg" class="text">Nu fattar jag ingenting</h3>
+                            </div>
+                            <div>
+                                <h6 id="timestamp" class="text">10:38</h6>
+                            </div>
+                        </div>
                     </div>
-                    <div class="singleChat text">
-                        <div class="sentMsg"><h3 id="sender" class="text">PuffyQueen//</h3>
-                        <h3 id="msg" class="text">Potatis</h3></div>
-                        <h6 id="timestamp" class="text">10:37</h6>
-                    </div>
-                    <div class="singleChat text">
-                        <div class="sentMsg"><h3 id="sender" class="text">Kent-Olof//</h3>
-                        <h3 id="msg" class="text">Nu fattar jag ingenting</h3></div>
-                        <div><h6 id="timestamp" class="text">10:38</h6></div>
-                    </div>
-                </div>
-                <div id="answerbox" class="text">
+                    <div id="answerbox" class="text">
                         <input type="text" placeholder="Write your message here" id="answerInput" class="text">
                         <div id="icons">Icons</div>
                         <button id="sendBtn" class="addBtn text">Send</button>
@@ -104,24 +125,25 @@
             <!-- <div class="sideContainer">
                 
             </div>
-             -->
+        -->
         </div>
         <br>
         <br>
         <div class="flexRow">
             <h3 class="text">
-                                Technical information:
-                ### STOP: </h3>    
-                <h3 class="numbers">
-                    0x000004e (0x0090009, 0x00090900, 0x09000909)
-                </h3>
-            </div>
-        
+                Technical information:
+                ### STOP: </h3>
+            <h3 class="numbers">
+                0x000004e (0x0090009, 0x00090900, 0x09000909)
+            </h3>
+        </div>
+
     </main>
+    <style>
+
+    </style>
+
+    
 </body>
+
 </html>
-
-
-
-
-
