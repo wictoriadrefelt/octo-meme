@@ -2,11 +2,11 @@
     box-sizing: border-box;
     margin: 0px; 
     padding: 0px; 
-    font-family:'blue-screen2';
+    /* font-family:'blue-screen2'; */ 
     /* font-family: 'blue-screen'; */
 }
 body {
-    background-color: blue;
+    /* background-color: blue; */ 
 }
 @font-face {
     font-family: blue-screen;
@@ -28,7 +28,7 @@ body {
     justify-content: center;
 }
 .text {
-    color: white;
+   /* color: white; */ 
 }
 .header {
     background-color: darkgray;
@@ -152,10 +152,12 @@ body {
 .sentMsg {
     display: flex;
 }
+/*
 .numbers {
     font-family:'blue-screen';
     color: white;
 }
+*/
 .flexRow {
     display: flex;
 }

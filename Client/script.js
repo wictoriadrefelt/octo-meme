@@ -4,17 +4,27 @@ const sendBtn = document.getElementById('sendBtn')
 const socket = io() 
 const sentMsg = document.getElementById('boxForChats')
 const chatContainer = document.getElementById('chatContainer')
+const userName = document.querySelector('#input')
+const userNameBtn = document.getElementById('userNameBtn')
 
 socket.on('message', (message) =>{
     console.log(message)
-    messageOutput(message)
+   // messageOutput(message)
     
 })
 
-let userName= 'Sammy'
+
+
+
+
+
+
+//let userName= 'Sammy'
+
 let joinedRoom = ''
 
-
+/* 
+// get value from input field 
 sendBtn.addEventListener('click', (e) => {
     e.preventDefault(); 
     let msg = messageToSend.value
@@ -24,8 +34,21 @@ sendBtn.addEventListener('click', (e) => {
     // empty field here 
     
     socket.emit('messageFromChat', msg)   
+    messageToSend.value = " ";
 })
+ */
 
+
+userNameBtn.addEventListener('click', (e) => {
+    // prevents the default behaviour when submitting a form
+    e.preventDefault(); 
+
+    // get message text from input
+    const user = userName.value
+    console.log(user)
+    
+   userName.value = ' '
+})
 
 
 

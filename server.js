@@ -25,6 +25,8 @@ const io = new Server(server)
 // connection - reserved keyword from io
 io.on('connection', (socket) => {
 
+    console.log('socket has connected with:', socket.id)
+    
     socket.emit('message', messageForm(admin, 'Hello and welcome'))
 
     // in use for entering chat? 
