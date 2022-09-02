@@ -2,12 +2,12 @@
     box-sizing: border-box;
     margin: 0px; 
     padding: 0px; 
-    /* font-family:'blue-screen2'; */
-    /* font-family: 'blue-screen'; */
+    font-family:'blue-screen2';
+    font-family: 'blue-screen';
 }
-/* body {
+body {
     background-color: blue;
-} */
+}
 @font-face {
     font-family: blue-screen;
     src: url('blueScreenFont.ttf');
@@ -27,25 +27,27 @@
     display: flex;
     justify-content: center;
 }
-/* .text {
+
+.text {
     color: white;
-} */
-/* .header {
+}
+.header {
     background-color: darkgray;
     color: blue;
-} */
+    min-height: 50vh;
+}
 .sideContainer {
+    min-height: 50vh;
     border: solid;
     border-color: white;
-    height:100%;
-    width: 200px;
+    min-width: 200px;
     display: flex;
     flex-direction: column;
 }
 .middleContainer {
+    min-height: 50vh;
     border: solid;
     border-color: white;
-    height: 100%;
     min-width: 600px;
     max-width: 70%;
 }
@@ -96,14 +98,14 @@
     background-color: darkgray;
     cursor: pointer;
 }
-/* #roomInput, #userInput {
+#roomInput, #userInput {
     background-color: blue;
     border: solid;
     border-color: white;
     width: 100%;
     display: flex;
     color: white;
-} */
+}
 .singleRoom:hover {
     cursor: pointer;
     background-color: darkcyan;
@@ -145,10 +147,10 @@
 .sentMsg {
     display: flex;
 }
-/* .numbers {
+.numbers {
     font-family:'blue-screen';
     color: white;
-} */
+}
 .flexRow {
     display: flex;
 }
