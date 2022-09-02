@@ -1,8 +1,8 @@
 import express from 'express'; 
 import { createServer } from "http";
 import { Server } from 'socket.io'
-
-import { DateTime } from 'luxon'
+import fetch from 'node-fetch';
+import { DateTime } from 'luxon';
 import { messageForm } from './utils/output.js';
 
 
@@ -42,14 +42,69 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         io.sockets.emit('message',  messageForm(admin, 'Someone left the chat'))
     })
-
-
-
-
-    
-
 })
 
+
+var headers = {
+    'Content-Type':'multipart/form-data',
+    'Accept':'application/json'
+  
+  };
+  
+  app.post('/api', async (req, res) => {
+    try {
+        let response = await fetch('https://api.flaticon.com/v3/app/authentication', {
+            headers: {  
+                'Content-Type':'multipart/form-data',  
+                'Accept':'application/json',
+                'Authentication': 'e3d45cf71bb2d64731644bf2a61a3a8be9755818'     
+            },       
+        })
+        //console.log(response);
+        let object = req.body
+        console.log(object);
+        res.json('Smultron')
+
+           /*  const data = await response.json()
+            console.log(data);
+            res.json(data)
+             */
+        
+    } catch (err) {
+        console.error(err)
+      res.json(err)
+    }
+}
+  )
+    /* {
+     
+        headers: headers,
+        success: function(data) {
+        console.log(JSON.stringify(data));
+    } 
+  }) */
+
+
+app.get("/api/", async (req, res) => {
+    try {
+        let response = await fetch('https://api.flaticon.com/v3/app/authentication', {   
+            headers: {
+                Authentication: 'e3d45cf71bb2d64731644bf2a61a3a8be9755818'   
+            } 
+        });
+        console.log(response);
+            const data = await response.json()
+            console.log(data);
+            res.json(data)
+            
+    } catch (err) {
+      console.error(err)
+      res.json(err)
+    }
+  }
+  )
+
+  
 
 // api https://api.flaticon.com/v3/docs/index.html
 // use some random icons 

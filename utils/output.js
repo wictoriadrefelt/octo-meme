@@ -5,7 +5,7 @@ export const messageForm =(userName, text) => {
     return {
         userName, 
         text,
-        time: moment()
+        time: moment().format('LT')
     }
 
 }

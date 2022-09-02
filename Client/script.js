@@ -19,6 +19,8 @@ const sendBtn = document.getElementById('sendBtn')
 const socket = io() 
 const sentMsg = document.getElementById('boxForChats')
 const chatContainer = document.getElementById('chatContainer')
+let roomContainer = document.getElementById('room')
+let answerFromApi = undefined
 
 socket.on('message', (message) =>{
     console.log(message)
@@ -57,5 +59,28 @@ const messageOutput = (message) => {
     sentMsg.appendChild(sentMessage)
 }
 
+document.getElementById('addRoomBtn').addEventListener('click', () => {
+    console.log('room');
+    let room = document.getElementById('roomInput').value
+    socket.emit('join', {roomToJoin: room})
+    joinedRoom = room
+    console.log(joinedRoom);
+    let roomInList = document.createElement('h3')
+    //roomInList.classList.add('text')
+    roomInList.innerText = joinedRoom
+
+    roomContainer.append(roomInList)    
+})
 
 
+
+/* const getIcon = () => {
+    fetch("http://localhost:3001/api/").then((res) => {
+        console.log(res)
+        return res.json()
+    }).then((data) => {
+        answerFromApi = data
+    }).catch((err) => {
+        console.error('Fetch gone wrong', err)
+    })
+} */
