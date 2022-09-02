@@ -30,13 +30,17 @@ let userName= 'Sammy'
 let joinedRoom = ''
 
 
+socket.on("rooms", (rooms) => {
+    console.log(rooms)
+})
+
+
 sendBtn.addEventListener('click', (e) => {
     e.preventDefault(); 
     let msg = messageToSend.value
-    //sentMsg.innerHTML = msg
-    //console.log(msg)
-    //messageOutput(msg)
-    // empty field here 
+    if(!msg){
+        return false
+    }
     
     socket.emit('messageFromChat', msg)   
 })
