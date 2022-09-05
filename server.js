@@ -25,7 +25,7 @@ io.on("connection", (socket) => {
     
     socket.on("joinRoom", ({ username, room }) => {
       const user = joinUser(socket.id, username, room);
-  
+    socket.nickname = username
       socket.join(user.room);
   
       // welcome message 
@@ -36,12 +36,33 @@ io.on("connection", (socket) => {
         );
   
     });
- 
-    socket.on("messageFromChat", (msg) => {
-      const user = getUser(socket.id);
-        console.log(user)
-      io.to(user.room).emit("message", messageForm(user.username, msg));
-    });
+
+      
+    socket.on("messageFromChat", async (msg) => {
+        try {
+            const user = getUser(socket.id);
+            /* const response = await fetch(`http://api.nationalize.io?name=Fredrik`)
+            const data = await response.json()
+            response.json(data) */
+            
+            if (msg.includes('/')) {
+                const response = await fetch(`http://api.nationalize.io?name=${socket.nickname}`)
+                const data = await response.json()
+                if (data.name == socket.nickname) {
+                    console.log('dubbla bananer');
+                    msg = 'but didnt write a message'
+                    io.to(user.room).emit("message", messageForm(`${socket.nickname}// is with ${data.country[0].probability}/1 probability from ${data.country[0].country_id}`, msg));        
+                }
+            } else {
+                console.log(user)
+                io.to(user.room).emit("message", messageForm(user.username, msg));
+    
+            }
+            }
+         catch (error) {
+            console.log('NOPE');
+
+    }});
   
     
     socket.on('disconnect', () => {
@@ -49,66 +70,22 @@ io.on("connection", (socket) => {
         //io.emit('message',  messageForm(admin, `${user.username} has left the chat`))
     })
 })
+ 
+ 
 
 
-var headers = {
-    'Content-Type':'multipart/form-data',
-    'Accept':'application/json'
-  
-  };
-  
-  app.post('/api', async (req, res) => {
+
+/* app.get("/api/", async (req, res) => {
     try {
-        let response = await fetch('https://api.flaticon.com/v3/app/authentication', {
-            headers: {  
-                'Content-Type':'multipart/form-data',  
-                'Accept':'application/json',
-                'Authentication': 'e3d45cf71bb2d64731644bf2a61a3a8be9755818'     
-            },       
-        })
-        //console.log(response);
-        let object = req.body
-        console.log(object);
-        res.json('Smultron')
-
-           /*  const data = await response.json()
-            console.log(data);
-            res.json(data)
-             */
-        
-    } catch (err) {
-        console.error(err)
-      res.json(err)
-    }
-}
-  )
-    /* {
-     
-        headers: headers,
-        success: function(data) {
-        console.log(JSON.stringify(data));
-    } 
-  }) */
-
-
-app.get("/api/", async (req, res) => {
-    try {
-        let response = await fetch('https://api.flaticon.com/v3/app/authentication', {   
-            headers: {
-                Authentication: 'e3d45cf71bb2d64731644bf2a61a3a8be9755818'   
-            } 
-        });
-        console.log(response);
-            const data = await response.json()
-            console.log(data);
-            res.json(data)
-            
+      const response = await fetch('http://api.nationalize.io?name=fredrik')
+      const data = await response.json()
+      res.json(data)
     } catch (err) {
       console.error(err)
       res.json(err)
     }
   }
-  )
+  ) */
 
   
 
