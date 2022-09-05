@@ -23,6 +23,7 @@ const socket = io()
 const sentMsg = document.getElementById('boxForChats')
 const chatContainer = document.getElementById('chatContainer')
 let roomContainer = document.getElementById('room')
+let msgContainer = document.getElementById
 let answerFromApi = undefined
 
 socket.on('message', (message) =>{
@@ -51,38 +52,23 @@ sendBtn.addEventListener('click', (e) => {
     //console.log(msg)
     //messageOutput(msg)
     // empty field here 
-   if(msg.includes('/') ){
-    console.log('potato')
-   }
-    
+
     socket.emit('messageFromChat', msg)   
     console.log(msg)
 })
- */
 
-/* 
-let display = document.getElementById('display-time')
 
-let text = 'hello there '
-function typeWriter() {
-    if (i < text.length) {
-      document.getElementById("front-page-container").innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, speed);
-    }
-  }
+const messageOutput = (message) => {
 
-  typeWriter(); */
-
-/* const messageOutput = (message) => {
     const sentMessage = document.createElement('div')
     sentMessage.classList.add('sentMsg')
-    let renderMsg = document.getElementById('msg')
-    // TODO add more here later, fix it tomorrow
-    sentMessage.innerHTML = `${message.userName}//, ${message.text}, ${message.time}`;
-   
+    // TODO add more here later, fix it tomorrow   
     
-    renderMsg.appendChild(sentMessage)
+    sentMessage.innerHTML = `<h3 class="sender">${message.userName} <h3 id="msg class="numbers"> ${message.text} <h6 id="timestamp"> ${message.time}`
+
+    console.log(message.text)
+    console.log(message.time)
+
     sentMsg.appendChild(sentMessage)
 }
  */
@@ -100,14 +86,35 @@ function typeWriter() {
 }) */
 
 
-
-/* const getIcon = () => {
-    fetch("http://localhost:3001/api/").then((res) => {
+const getAnswerfromApi = () => {
+    fetch("http://localhost:3007/api/").then((res) => {
         console.log(res)
         return res.json()
     }).then((data) => {
         answerFromApi = data
+        //renderApiAnswer()
     }).catch((err) => {
-        console.error('Fetch gone wrong', err)
+        console.error('Fel i API', err)
     })
-} */
+}
+
+function renderApiAnswer() {
+    //let nationalityToRender = document.createElement('div')
+    let nationalityToRender = document.getElementById('msg')
+    nationalityToRender.innerHTML = ''
+    nationalityToRender.innerHTML = answerFromApi.country[0].country_id
+
+
+}
+
+function addUniversityAnswerToBox() {
+    let universityAnswerBox = document.createElement("h2");
+    universityAnswerBox.classList.add('answer');
+    universityContainer.innerHTML = ''
+    universityAnswerBox.innerHTML = (`From ${universityAnswerFromApi.name}`)
+
+    if (universityAnswerFromApi) {
+        clearDivs()
+    }
+    universityContainer.append(universityAnswerBox)
+}
