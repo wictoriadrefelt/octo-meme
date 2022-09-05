@@ -1,3 +1,6 @@
+
+
+
 var coll = document.getElementsByClassName("collapsible");
 var i;
 
@@ -28,9 +31,18 @@ socket.on('message', (message) =>{
     
 })
 
-let userName= 'Sammy'
-let joinedRoom = ''
 
+// gets current url
+let currentURL = document.location.href
+
+let room = 'startRoom'
+// gets username from params in url. 
+let objUrlParams = new URLSearchParams(window.location.search);
+let username = objUrlParams.get('username'); 
+console.log(username)
+
+
+socket.emit('joinRoom', { username, room });
 
 sendBtn.addEventListener('click', (e) => {
     e.preventDefault(); 

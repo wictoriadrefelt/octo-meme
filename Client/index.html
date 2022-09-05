@@ -78,11 +78,19 @@
         <span>----------------------------------</span></br>
         <h2>INPUT USERNAME TO ENTER</h2>
         <h2>$ > 
-            <input placeholder="" type="text" id="userNameInput">
-        </h2>
-        
-    </div>
-    
+            <form action="bluescreen.html">
+                <div class="form-control">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        placeholder=">"
+                        required
+                    />
+                </div>
+                <button type="submit" class="btn">Join Chat</button>
+            </form>
     <div class="error">
         Network error encountered while PXE booting. </br> 
         Scanning the local disk for cashed image. </br> 

@@ -4,6 +4,7 @@ import { Server } from 'socket.io'
 import fetch from 'node-fetch';
 import { DateTime } from 'luxon';
 import { messageForm } from './utils/output.js';
+import  {joinUser, getUser }  from './utils/users.js';
 
 
 
@@ -19,28 +20,33 @@ const server = createServer(app);
 app.use('/', express.static('./Client'))
 const io = new Server(server)
 
-
-
-
-// connection - reserved keyword from io
-io.on('connection', (socket) => {
-
-    socket.emit('message', messageForm(admin, 'Hello and welcome'))
-
-    // in use for entering chat? 
-    socket.broadcast.emit('message', messageForm(admin, 'Someone joined'))
-
-
-    // 
-    socket.on('messageFromChat', (message) => {
-        socket.emit('message', messageForm(admin, message))
-    } )
+   
+io.on("connection", (socket) => {
     
-
-
-    // when user leaves chat
+    socket.on("joinRoom", ({ username, room }) => {
+      const user = joinUser(socket.id, username, room);
+  
+      socket.join(user.room);
+  
+      // welcome message 
+      socket.emit("message", messageForm(admin, "Run Terminal Chat"));
+  
+      // puts out message when a user joins a room 
+      socket.broadcast.to(user.room).emit("message",messageForm(admin, `${user.username} has joined the chat`)
+        );
+  
+    });
+ 
+    socket.on("messageFromChat", (msg) => {
+      const user = getUser(socket.id);
+        console.log(user)
+      io.to(user.room).emit("message", messageForm(user.username, msg));
+    });
+  
+    
     socket.on('disconnect', () => {
-        io.sockets.emit('message',  messageForm(admin, 'Someone left the chat'))
+        //let user = getUser(socket.id)
+        //io.emit('message',  messageForm(admin, `${user.username} has left the chat`))
     })
 })
 
