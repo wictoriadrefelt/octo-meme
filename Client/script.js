@@ -107,3 +107,10 @@ function renderApiAnswer() {
 
 }
 
+
+/* // Plays sound when typing
+document.addEventListener('keydown', function(e) {
+    typeSound();
+
+});
+ */
