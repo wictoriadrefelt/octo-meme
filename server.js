@@ -45,9 +45,10 @@ io.on("connection", (socket) => {
             const data = await response.json()
             response.json(data) */
             
-            if (msg.includes('/')) {
+            if (msg.startsWith('/')) {
                 const response = await fetch(`http://api.nationalize.io?name=${socket.nickname}`)
                 const data = await response.json()
+
                 if (data.name == socket.nickname) {
                     console.log('dubbla bananer');
                     msg = 'but didnt write a message'
