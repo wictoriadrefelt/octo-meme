@@ -28,7 +28,7 @@ let answerFromApi = undefined
 
 socket.on('message', (message) =>{
     console.log(message)
-    messageOutput(message)
+    //messageOutput(message)
     
 })
 
@@ -43,7 +43,7 @@ let username = objUrlParams.get('username');
 console.log(username)
 
 
-socket.emit('joinRoom', { username, room });
+/* socket.emit('joinRoom', { username, room });
 
 sendBtn.addEventListener('click', (e) => {
     e.preventDefault(); 
@@ -52,19 +52,18 @@ sendBtn.addEventListener('click', (e) => {
     //console.log(msg)
     //messageOutput(msg)
     // empty field here 
-    if(msg.includes('/') ){
-        
-        //renderApiAnswer()
-    }
+
     socket.emit('messageFromChat', msg)   
+    console.log(msg)
 })
 
 
-
 const messageOutput = (message) => {
+
     const sentMessage = document.createElement('div')
     sentMessage.classList.add('sentMsg')
-    // TODO add more here later, fix it tomorrow
+    // TODO add more here later, fix it tomorrow   
+    
     sentMessage.innerHTML = `<h3 class="sender">${message.userName} <h3 id="msg class="numbers"> ${message.text} <h6 id="timestamp"> ${message.time}`
 
     console.log(message.text)
@@ -72,8 +71,8 @@ const messageOutput = (message) => {
 
     sentMsg.appendChild(sentMessage)
 }
-
-document.getElementById('addRoomBtn').addEventListener('click', () => {
+ */
+/* document.getElementById('addRoomBtn').addEventListener('click', () => {
     console.log('room');
     let room = document.getElementById('roomInput').value
     socket.emit('join', {roomToJoin: room})
@@ -84,7 +83,7 @@ document.getElementById('addRoomBtn').addEventListener('click', () => {
     roomInList.innerText = joinedRoom
 
     roomContainer.append(roomInList)    
-})
+}) */
 
 
 const getAnswerfromApi = () => {
