@@ -28,7 +28,7 @@ let answerFromApi = undefined
 
 socket.on('message', (message) =>{
     console.log(message)
-    //messageOutput(message)
+    messageOutput(message)
     
 })
 
@@ -43,7 +43,7 @@ let username = objUrlParams.get('username');
 console.log(username)
 
 
-/* socket.emit('joinRoom', { username, room });
+socket.emit('joinRoom', { username, room });
 
 sendBtn.addEventListener('click', (e) => {
     e.preventDefault(); 
@@ -71,7 +71,7 @@ const messageOutput = (message) => {
 
     sentMsg.appendChild(sentMessage)
 }
- */
+
 /* document.getElementById('addRoomBtn').addEventListener('click', () => {
     console.log('room');
     let room = document.getElementById('roomInput').value
@@ -107,14 +107,3 @@ function renderApiAnswer() {
 
 }
 
-function addUniversityAnswerToBox() {
-    let universityAnswerBox = document.createElement("h2");
-    universityAnswerBox.classList.add('answer');
-    universityContainer.innerHTML = ''
-    universityAnswerBox.innerHTML = (`From ${universityAnswerFromApi.name}`)
-
-    if (universityAnswerFromApi) {
-        clearDivs()
-    }
-    universityContainer.append(universityAnswerBox)
-}
