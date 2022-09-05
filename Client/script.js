@@ -59,3 +59,27 @@ const messageOutput = (message) => {
 
 
 
+/* const getIcon = () => {
+    fetch("http://localhost:3001/api/").then((res) => {
+        console.log(res)
+        return res.json()
+    }).then((data) => {
+        answerFromApi = data
+    }).catch((err) => {
+        console.error('Fetch gone wrong', err)
+    })
+} */
+
+const getAnswerfromApi = () => {
+    fetch("http://localhost:3007/api/").then((res) => {
+        console.log(res)
+        return res.json()
+    }).then((data) => {
+        
+        //addUniversityAnswerToBox()
+    }).catch((err) => {
+        console.error('Fel i API', err)
+    })
+}
+
+function renderApiAnswer
