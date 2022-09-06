@@ -46,11 +46,11 @@ io.on("connection", (socket) => {
 
                 if (data.name == socket.nickname) {
                     
-                    msg = 'but didnt write a message'
+                    msg = ''
                     io.to(user.room).emit("message", messageForm
-                    (`${socket.nickname}// is with 
-                    ${data.country[0].probability}
-                    /1 probability from ${data.country[0].country_id}`, msg));        
+                    (`${socket.nickname} is with 
+                    ${data.country[0].probability} 
+                    % chance from ${data.country[0].country_id}`, msg));        
                 }
             } else {
                 console.log(user)

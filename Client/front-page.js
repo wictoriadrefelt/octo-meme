@@ -31,12 +31,12 @@ socket.on('message', (message) =>{
   document.getElementById('time').innerHTML = currentTime
     
   }	
-
+/* 
   function playSound () {
 	let ding = new Audio('./sound/background.wav');
     ding.muted = true;
 	ding.play();
-}
+} */
 
 
 const message =  `<h2>SET UP CHAT</h2>
@@ -75,8 +75,7 @@ getDateAndTime()
 
 
 window.addEventListener('load', () => {
-    //playSound();
-  
+   
     typing(message)
     
 })
