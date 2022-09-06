@@ -19,12 +19,28 @@ let answerInput = document.getElementById('answerInput')
 
 
 function getCommands() {
-    if (answerInput.value.startsWith('/')) {
-        let getCountry = document.getElementById('getApibtn')
-        getCountry.innerText = 'Get your country'
+    if (answerInput.value.startsWith('/'))  {
+        // getCountry to div, or button 
+
+
+        // om commando börjar med slash + commando, 
+        // skicka ut värde för api-anrop 
+        // när värdet skrivs in, 
+        // skicka ut api anrop 
+       
         
     }
 }
+
+const onInput = (event) => {
+
+    if(event.target.value.startsWith('/')) {
+        console.log(event.target.value)
+        let getCountry = document.getElementById('getApibtn')
+        getCountry.innerText = '/getCountry'
+    }
+}
+    document.getElementById("answerInput").addEventListener("input", onInput)
 
 
 // gets current url

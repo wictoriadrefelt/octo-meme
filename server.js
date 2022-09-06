@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
       // welcome message 
       socket.emit("message", messageForm(admin, "Run Terminal Chat"));
   
-      // puts out message when a user joins a room 
+      // puts out message when a user joins
       socket.broadcast.to(user.room).emit("message",messageForm(admin, `${user.username} has joined the chat`)
         );
   
@@ -41,16 +41,13 @@ io.on("connection", (socket) => {
     socket.on("messageFromChat", async (msg) => {
         try {
             const user = getUser(socket.id);
-            /* const response = await fetch(`http://api.nationalize.io?name=Fredrik`)
-            const data = await response.json()
-            response.json(data) */
             
-            if (msg.startsWith('/')) {
+            if (msg.startsWith('/getCountry')) {
                 const response = await fetch(`http://api.nationalize.io?name=${socket.nickname}`)
                 const data = await response.json()
 
                 if (data.name == socket.nickname) {
-                    console.log('dubbla bananer');
+                    
                     msg = 'but didnt write a message'
                     io.to(user.room).emit("message", messageForm(`${socket.nickname}// is with ${data.country[0].probability}/1 probability from ${data.country[0].country_id}`, msg));        
                 }
@@ -67,8 +64,8 @@ io.on("connection", (socket) => {
   
     
     socket.on('disconnect', () => {
-        //let user = getUser(socket.id)
-        //io.emit('message',  messageForm(admin, `${user.username} has left the chat`))
+      
+        io.emit('message',  messageForm(admin, `Someone has left the chat`))
     })
 })
  
