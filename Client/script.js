@@ -1,21 +1,4 @@
 
-
-
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.maxHeight) {
-            content.style.maxHeight = "100%";
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
-    });
-}
-
 const inputForm = document.getElementById('userNameInput')
 const messageToSend = document.getElementById('answerInput')
 const sendBtn = document.getElementById('sendBtn')
@@ -31,6 +14,17 @@ socket.on('message', (message) =>{
     messageOutput(message)
     
 })
+
+let answerInput = document.getElementById('answerInput') 
+
+
+function getCommands() {
+    if (answerInput.value.startsWith('/')) {
+        let getCountry = document.getElementById('getApibtn')
+        getCountry.innerText = 'Get your country'
+        
+    }
+}
 
 
 // gets current url
@@ -52,23 +46,26 @@ sendBtn.addEventListener('click', (e) => {
     //console.log(msg)
     //messageOutput(msg)
     // empty field here 
-
+    
     socket.emit('messageFromChat', msg)   
     console.log(msg)
+    messageToSend.value = ""
 })
 
 
-const messageOutput = (message) => {
 
+
+const messageOutput = (message) => {
+    
     const sentMessage = document.createElement('div')
     sentMessage.classList.add('sentMsg')
     // TODO add more here later, fix it tomorrow   
     
-    sentMessage.innerHTML = `<h3 class="sender">${message.userName} <h3 id="msg class="numbers"> ${message.text} <h6 id="timestamp"> ${message.time}`
-
+    sentMessage.innerHTML = `<h3 class="sender">${message.userName} <h3 id="msg" class="numbers"> ${message.text} <h6 id="timestamp"> ${message.time}`
+    
     console.log(message.text)
     console.log(message.time)
-
+    
     sentMsg.appendChild(sentMessage)
 }
 
@@ -81,7 +78,7 @@ const messageOutput = (message) => {
     let roomInList = document.createElement('h3')
     //roomInList.classList.add('text')
     roomInList.innerText = joinedRoom
-
+    
     roomContainer.append(roomInList)    
 }) */
 
@@ -103,14 +100,30 @@ function renderApiAnswer() {
     let nationalityToRender = document.getElementById('msg')
     nationalityToRender.innerHTML = ''
     nationalityToRender.innerHTML = answerFromApi.country[0].country_id
-
-
+    
+    
 }
 
+var coll = document.getElementsByClassName("collapsible");
+var i;
 
-/* // Plays sound when typing
+for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+            content.style.maxHeight = "100%";
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+}
+
+ // Plays sound when typing
 document.addEventListener('keydown', function(e) {
     typeSound();
 
 });
- */
+
+
+

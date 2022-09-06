@@ -111,6 +111,11 @@ body {
     cursor: pointer;
     background-color: darkcyan;
 }
+.singleRoom {
+    margin-left: 5px;
+}
+
+
 .input {
     display: flex;
     flex-direction: column;
@@ -149,11 +154,19 @@ body {
     display: flex;
     justify-content: space-between;
     font-family: 'blue-screen';
+    margin-left: 5px;
 
+}
+#timestamp {
+    width: 50px;
+}
+
+.sender {
+    width: 360px;
 }
 
 #msg {
-    width: 40%;
+    width: 450px;
 }
 
 .numbers, #timestamp {
@@ -357,8 +370,4 @@ body {
   .crt {
     animation: textShadow 1.6s infinite;
   }
-
-.sender {
-    width: 360px;
-}
 
