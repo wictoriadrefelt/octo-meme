@@ -162,11 +162,11 @@ body {
 }
 
 .sender {
-    width: 360px;
+    width: 100px;
 }
 
 #msg {
-    width: 450px;
+    width: 750px;
 }
 
 .numbers, #timestamp {
