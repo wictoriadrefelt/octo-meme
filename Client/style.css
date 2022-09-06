@@ -140,6 +140,9 @@ input:before {
     pointer-events: none;
   }
 
+
+  
+
   @keyframes flicker {
     0% {
     opacity: 0.27861;

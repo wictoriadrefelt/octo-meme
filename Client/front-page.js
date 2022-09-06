@@ -1,7 +1,3 @@
-import { typeSound } from "./sound/sound.js"
-
-
-
 
 /* const socket = io() 
 let userInput = document.getElementById('username').value
@@ -13,11 +9,7 @@ socket.on('message', (message) =>{
 }) */
 
 
-// Creates typing sound whils typing
-document.addEventListener('keydown', function(e) {
-      typeSound();
 
-  });
 
 
   // displays time on start-screen
@@ -39,12 +31,15 @@ document.addEventListener('keydown', function(e) {
   document.getElementById('time').innerHTML = currentTime
     
   }	
-
+/* 
   function playSound () {
 	let ding = new Audio('./sound/background.wav');
     ding.muted = true;
 	ding.play();
-}
+} */
+
+
+
 
 
 const message =  `<h2>SET UP CHAT</h2>
@@ -65,7 +60,7 @@ const typing = (message, timeout) =>
     (ch, i) =>
       new Promise(resolve => {
         setTimeout(() => {
-          resolve(message.substring(0, i + 1));
+          resolve(message.substring(0, i + 5));
         }, timeout * i);
       })
   );
@@ -83,8 +78,7 @@ getDateAndTime()
 
 
 window.addEventListener('load', () => {
-    //playSound();
-  
+   
     typing(message)
     
 })
