@@ -2,12 +2,8 @@ import express from 'express';
 import { createServer } from "http";
 import { Server } from 'socket.io'
 import fetch from 'node-fetch';
-import { DateTime } from 'luxon';
 import { messageForm } from './utils/output.js';
 import  {joinUser, getUser }  from './utils/users.js';
-
-
-
 
 
 const admin = 'Admin'
@@ -32,7 +28,8 @@ io.on("connection", (socket) => {
       socket.emit("message", messageForm(admin, "Run Terminal Chat"));
   
       // puts out message when a user joins
-      socket.broadcast.to(user.room).emit("message",messageForm(admin, `${user.username} has joined the chat`)
+      socket.broadcast.to(user.room).emit("message",messageForm(admin, 
+        `${user.username} has joined the chat`)
         );
   
     });
@@ -43,13 +40,17 @@ io.on("connection", (socket) => {
             const user = getUser(socket.id);
             
             if (msg.startsWith('/getCountry')) {
-                const response = await fetch(`http://api.nationalize.io?name=${socket.nickname}`)
+                const response = await fetch
+                (`http://api.nationalize.io?name=${socket.nickname}`)
                 const data = await response.json()
 
                 if (data.name == socket.nickname) {
                     
                     msg = 'but didnt write a message'
-                    io.to(user.room).emit("message", messageForm(`${socket.nickname}// is with ${data.country[0].probability}/1 probability from ${data.country[0].country_id}`, msg));        
+                    io.to(user.room).emit("message", messageForm
+                    (`${socket.nickname}// is with 
+                    ${data.country[0].probability}
+                    /1 probability from ${data.country[0].country_id}`, msg));        
                 }
             } else {
                 console.log(user)
@@ -58,7 +59,7 @@ io.on("connection", (socket) => {
             }
             }
          catch (error) {
-            console.log('NOPE');
+            console.log(error, 'Something went wrong');
 
     }});
   
@@ -71,27 +72,6 @@ io.on("connection", (socket) => {
  
  
 
-
-
-/* app.get("/api/", async (req, res) => {
-    try {
-      const response = await fetch('http://api.nationalize.io?name=fredrik')
-      const data = await response.json()
-      res.json(data)
-    } catch (err) {
-      console.error(err)
-      res.json(err)
-    }
-  }
-  ) */
-
-  
-
-// api https://api.flaticon.com/v3/docs/index.html
-// use some random icons 
-// save api call to list 
-// loop through list with math.random to get random icons 
-// in chat
 
 server.listen(PORT, () => {
     console.log(`server running on port: ${PORT}`)

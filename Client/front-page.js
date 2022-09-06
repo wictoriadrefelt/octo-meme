@@ -65,7 +65,7 @@ const typing = (message, timeout) =>
     (ch, i) =>
       new Promise(resolve => {
         setTimeout(() => {
-          resolve(message.substring(0, i + 1));
+          resolve(message.substring(0, i + 5));
         }, timeout * i);
       })
   );
