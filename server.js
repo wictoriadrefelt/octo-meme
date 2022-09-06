@@ -4,6 +4,7 @@ import { Server } from 'socket.io'
 import fetch from 'node-fetch';
 import { messageForm } from './utils/output.js';
 import  {joinUser, getUser }  from './utils/users.js';
+import { isGeneratorFunction } from 'util/types';
 
 
 const admin = 'Admin'
@@ -45,13 +46,28 @@ io.on("connection", (socket) => {
                 const data = await response.json()
 
                 if (data.name == socket.nickname) {
-                    
+                    console.log(data)
+
+                    if(!data.country[0]){
+                        msg = 'Name does not exist'
+                        console.log(data)
+                        io.to(user.room).emit("message", messageForm(user.username, msg));
+                        console.log('hej')
+                   
+
+                } else
+                    console.log(data.country[0].country_id)
                     msg = ''
                     io.to(user.room).emit("message", messageForm
                     (`${socket.nickname} is with 
                     ${data.country[0].probability} 
-                    % chance from ${data.country[0].country_id}`, msg));        
+                    % chance from ${data.country[0].country_id}`, msg));  
+               
+                  
+                
                 }
+               
+                
             } else {
                 console.log(user)
                 io.to(user.room).emit("message", messageForm(user.username, msg));
