@@ -49,7 +49,7 @@ io.on("connection", (socket) => {
                     console.log(data)
 
                     if(!data.country[0]){
-                        msg = 'Name does not exist'
+                        msg = 'This person does not live anywhere'
                         console.log(data)
                         io.to(user.room).emit("message", messageForm(user.username, msg));
                         console.log('hej')
@@ -57,11 +57,11 @@ io.on("connection", (socket) => {
 
                 } else
                     console.log(data.country[0].country_id)
-                    msg = ''
-                    io.to(user.room).emit("message", messageForm
-                    (`${socket.nickname} is with 
+                    msg = (`is with 
                     ${data.country[0].probability} 
-                    % chance from ${data.country[0].country_id}`, msg));  
+                    % chance from ${data.country[0].country_id}`)
+                    io.to(user.room).emit("message", messageForm
+                    (socket.nickname, msg));  
                
                   
                 
