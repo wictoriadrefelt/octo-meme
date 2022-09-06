@@ -7,8 +7,9 @@
     <script src="/socket.io/socket.io.js"></script>
     
     
-    <script defer type="module" src="./script.js"></script>
+    <script defer type="module" src="./front-page.js"></script>
     <link rel="stylesheet" href="style.css">
+   
     
 
 
@@ -17,20 +18,20 @@
     <title>Document</title>
 </head>
 <body>
-
-
+    
 <div class="crt">
     <div class="front-page-container">
         <div id="display-time">
-            <h2>
+          
+           
                 
-                Current date is: 
-            </h2>
+                <h2 id="date">:</h2>
+          
 
 
-            <h2>
-                Current time is: 
-            </h2>
+            <h2 id="time"> Current time is: </h2>
+           <button id="playbutton"></button>
+
         </div>
     </div>
     <div class="sys">
@@ -63,21 +64,14 @@
         [Windows.old]
     </div>
     
-
+<p></p>
 
 </div>
-
+<div class="output">
+    hej
+</div>
     <div class="userLogin">
-        <h2>CODE@CHAT</h2>
-        <span>----------------------------------</span> </br> 
-        <h2>CON_NAME</h2>
-        <span>----------------------------------</span></br>
-        <h2>REVOLUTONARY WAY TO COMMUNICATE ONLINE</h2>
-        <span>----------------------------------</span></br>
-        <h2>BEEP BOOP, BEEP BOOP, COMPUTER STUFF</h2>
-        <span>----------------------------------</span></br>
-        <h2>INPUT USERNAME TO ENTER</h2>
-        <h2>
+      
             <form action="bluescreen.html">
                 <div class="form-control">
                     <label for="username">---></label>
@@ -97,5 +91,6 @@
         if no image is found, the system will reboot in 20 seconds... </br> 
     </div>
 </div>
+
 </body>
 </html>

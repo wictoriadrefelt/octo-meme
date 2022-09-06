@@ -21,6 +21,7 @@
   "homepage": "https://github.com/wictoriadrefelt/octo-meme#readme",
   "dependencies": {
     "ajax": "^0.0.4",
+    "audic": "^3.0.1",
     "express": "^4.18.1",
     "luxon": "^3.0.3",
     "moment": "^2.29.4",

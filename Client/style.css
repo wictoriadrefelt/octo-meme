@@ -31,11 +31,13 @@ body{
 
 }
 
-.displayTime {
+#display-time {
     margin-top: 30px; 
     margin-left: 30px; 
     font-size: 20px;
     font-weight: 100;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 h2{
@@ -72,14 +74,56 @@ span {
 }
 
 
-input[type=text] {
+ input[type=text] {
     background-color:#323133;
     border:#323133;
     color: white;
     height: 60px;
     font-size: 20px;
     outline: none; 
-  }
+  } 
+ 
+  input[contenteditable="true"]:after {
+    content: "■";
+    animation: cursor 1s infinite;
+    animation-timing-function: step-end;
+    margin-left: 1px;
+}
+
+/* Inserts the > before terminal input */
+input:before {
+    content: ">";
+    position: absolute;
+    padding-left: 1.5rem;
+    left: 0;
+}
+
+
+.output {
+  margin-top: 70px;
+  height: 400px
+}
+
+
+#date, #time {
+  font-family: blue-screen;
+}
+/* h2 {
+  
+    color: yellow; 
+    font-family: "Arial";
+    font-size: 30px;
+    margin: 10px 0 0 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 30em;
+   /* added animation property to show the character one at a time*/
+
+@keyframes type{ 
+  from { 
+       width: 0; 
+       } 
+   } */
 
 
   .crt::before {
