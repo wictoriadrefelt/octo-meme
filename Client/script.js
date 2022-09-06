@@ -135,11 +135,7 @@ for (i = 0; i < coll.length; i++) {
     });
 }
 
- // Plays sound when typing
-document.addEventListener('keydown', function(e) {
-    typeSound();
 
-});
 
 
 
