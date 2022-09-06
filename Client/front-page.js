@@ -13,16 +13,15 @@ socket.on('message', (message) =>{
 }) */
 
 
-// Plays sound when typing
+// Creates typing sound whils typing
 document.addEventListener('keydown', function(e) {
       typeSound();
 
   });
 
 
+  // displays time on start-screen
   const getDateAndTime = () => {
-
-    
   let currentDate = new Date();
   currentDate = currentDate.toDateString()
   console.log(currentDate)
@@ -48,19 +47,20 @@ document.addEventListener('keydown', function(e) {
 }
 
 
-const message =  `<h2>CODE@CHAT</h2>
-<span>----------------------------------</span> </br> 
-<h2>CON_NAME</h2>
-<span>----------------------------------</span></br>
-<h2>REVOLUTONARY WAY TO COMMUNICATE ONLINE</h2>
-<span>----------------------------------</span></br>
-<h2>BEEP BOOP, BEEP BOOP, COMPUTER STUFF</h2>
-<span>----------------------------------</span></br>
+const message =  `<h2>SET UP CHAT</h2>
+ </br> 
+<h2>LOADING . . . . . . . . . . . . . . . . .</h2>
+<h2>. . . . . . . . . .</h2>
+<h2>. . . . . . .</h2>
+<h2>. .</h2>
+<h2>OK</h2>
+<h2>USER AUTHENTIFICATION</h2>
+
 <h2>INPUT USERNAME TO ENTER</h2>
 <h2>`
 
 
-const typingPromises = (message, timeout) =>
+const typing = (message, timeout) =>
   [...message].map(
     (ch, i) =>
       new Promise(resolve => {
@@ -70,7 +70,7 @@ const typingPromises = (message, timeout) =>
       })
   );
 
-typingPromises(message, 140).forEach(promise => {
+typing(message, 140).forEach(promise => {
   promise.then(portion => {
     document.querySelector('.output').innerHTML = portion;
   });
@@ -85,7 +85,7 @@ getDateAndTime()
 window.addEventListener('load', () => {
     //playSound();
   
-    typingPromises(message)
+    typing(message)
     
 })
 
