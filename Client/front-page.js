@@ -1,7 +1,3 @@
-import { typeSound } from "./sound/sound.js"
-
-
-
 
 /* const socket = io() 
 let userInput = document.getElementById('username').value
@@ -13,11 +9,7 @@ socket.on('message', (message) =>{
 }) */
 
 
-// Creates typing sound whils typing
-document.addEventListener('keydown', function(e) {
-      typeSound();
 
-  });
 
 
   // displays time on start-screen
