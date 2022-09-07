@@ -112,6 +112,8 @@ span {
     background-image: url('scanlines.png');
     z-index: 8;
   } 
+
+  
  
   input[contenteditable="true"]:after {
     content: "■";

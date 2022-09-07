@@ -23,9 +23,9 @@ socket.on('message', (message) =>{
     hour: "2-digit",
     minute: "2-digit",
   });
-  document.getElementById('date').innerHTML = ''
-  document.getElementById('date').innerHTML = currentDate
-  console.log(currentTime)
+  /* document.getElementById('date').innerHTML = ''
+  document.getElementById('date').innerHTML = currentDate */
+  
 
   document.getElementById('time').innerHTML = ''
   document.getElementById('time').innerHTML = currentTime
@@ -54,8 +54,11 @@ const message =  `<h2>SET UP CHAT</h2>
 <h2>INPUT USERNAME TO ENTER</h2>
 <h2>`
 
+//window.addEventListener('')
 
-window.addEventListener('keydown', () => {
+
+window.addEventListener('click', (e) => {
+
 playSound();
 const typing = (message, timeout) =>
   [...message].map(
