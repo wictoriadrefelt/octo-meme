@@ -54,10 +54,18 @@ const message =  `<h2>SET UP CHAT</h2>
 <h2>INPUT USERNAME TO ENTER</h2>
 <h2>`
 
-//window.addEventListener('')
+const btn = document.getElementById('start');
 
+btn.addEventListener('click', () => {
+  btn.style.backgroundColor = 'green';
+  btn.style.color = 'white';
+  btn.type = 'text/css'
+  btn.classList.add('button')
+  
 
-window.addEventListener('click', (e) => {
+})
+
+btn.addEventListener('click', (e) => {
 
 playSound();
 const typing = (message, timeout) =>
@@ -85,14 +93,7 @@ typing(message, 140).forEach(promise => {
 getDateAndTime()
 
 
-/* window.addEventListener('load', () => {
-   
-  setTimeout(function() {
-    typing(message);
-}, 3000);
-    
-})
- */
+
 
 
 

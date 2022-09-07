@@ -7,7 +7,20 @@
 }
 body {
     background-color: blue;
+    color: white;
+ 
+  
 }
+
+
+/* 
+ position: relative;
+  border: 30px solid transparent;
+  border-image-source: url(bezel.png);
+  border-image-slice: 10 fill;
+  border-image-outset: 0;
+  overflow: hidden;
+  */ 
 @font-face {
     font-family: blue-screen;
     src: url('blueScreenFont.ttf');
@@ -16,6 +29,18 @@ body {
     font-family: blue-screen2;
     src: url('blueScreenFont2.ttf');
 }
+
+.inner-crt {
+  margin-left: 40px; 
+  margin-right: 40px; 
+  margin-top: 40px; 
+  margin-bottom: 40px;
+ 
+ }
+
+
+
+
 #headerContainer {
     display: flex;
     flex-direction: column;
