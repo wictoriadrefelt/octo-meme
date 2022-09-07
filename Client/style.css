@@ -21,22 +21,39 @@ body{
     background-color:#323133;
     color: white; 
     font-family:'blue-screen2'; 
+  
+    object-fit: cover;
 }
 
 
 .crt {
     background-color:#323133;
     color: white;
-    min-width: 100vw;
+    position: relative;
+    border: 30px solid transparent;
+    border-image-source: url(bezel.png);
+    border-image-slice: 10 fill;
+    border-image-outset: 0;
+    overflow: hidden;
+    background-image: url('scanlines.png');
+    z-index: 8;
+   
+   
 }
    
 .inner-crt {
  margin-left: 40px; 
  margin-right: 40px; 
  margin-top: 40px; 
- margin-bottom: 40px; 
+ margin-bottom: 40px;
+
+ 
+
+	
+
 }
-  
+ 
+
 
 
 
@@ -76,6 +93,7 @@ h2{
 .userLogin {
     margin-left: 20px;
     margin-top: 90px;
+    z-index: 1;
 }
 
 span {
@@ -90,6 +108,9 @@ span {
     height: 60px;
     font-size: 20px;
     outline: none; 
+    
+    background-image: url('scanlines.png');
+    z-index: 8;
   } 
  
   input[contenteditable="true"]:after {

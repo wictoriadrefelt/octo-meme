@@ -31,12 +31,13 @@ socket.on('message', (message) =>{
   document.getElementById('time').innerHTML = currentTime
     
   }	
-/* 
+
   function playSound () {
-	let ding = new Audio('./sound/background.wav');
-    ding.muted = true;
-	ding.play();
-} */
+	let background = new Audio('./sound/background.wav');
+	//let background = new Audio('./sound/background2.wav');
+   background.autoplay = true; 
+	background.play();
+} 
 
 
 
@@ -49,12 +50,13 @@ const message =  `<h2>SET UP CHAT</h2>
 <h2>. . . . . . .</h2>
 <h2>. .</h2>
 <h2>OK</h2>
-<h2>USER AUTHENTIFICATION</h2>
-
+<h2>USER AUTHENTICATION</h2>
 <h2>INPUT USERNAME TO ENTER</h2>
 <h2>`
 
 
+window.addEventListener('keydown', () => {
+playSound();
 const typing = (message, timeout) =>
   [...message].map(
     (ch, i) =>
@@ -71,17 +73,26 @@ typing(message, 140).forEach(promise => {
   });
 });
 
+  //typing(message)
+})
+
 
 
 
 getDateAndTime()
 
 
-window.addEventListener('load', () => {
+/* window.addEventListener('load', () => {
    
-    typing(message)
+  setTimeout(function() {
+    typing(message);
+}, 3000);
     
 })
+ */
+
+
+
 
 
 

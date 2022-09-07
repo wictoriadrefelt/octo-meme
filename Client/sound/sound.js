@@ -2,10 +2,8 @@
 
 let keys = [
 	new Audio("./sound/key1.wav"),
-	//new Audio("./sound/key2.mp3"),
-	//new Audio("./sound/key3.mp3"),
-	//new Audio("./sound/key4.mp3"),
-	//new Audio("./sound/key5.mp3"),
+	new Audio("./sound/key6.mp3"),
+
 ];
 
 
