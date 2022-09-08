@@ -1,46 +1,23 @@
-
-/* const socket = io() 
-let userInput = document.getElementById('username').value
-
-socket.on('message', (message) =>{
-    console.log(message)
-    messageOutput(message)
-    
-}) */
-
-
-
-
-
   // displays time on start-screen
   const getDateAndTime = () => {
   let currentDate = new Date();
   currentDate = currentDate.toDateString()
-  console.log(currentDate)
   let currentTime = new Date(); 
   currentTime = currentTime.toLocaleTimeString("en-US",
   {
     hour: "2-digit",
     minute: "2-digit",
   });
-  /* document.getElementById('date').innerHTML = ''
-  document.getElementById('date').innerHTML = currentDate */
   
-
   document.getElementById('time').innerHTML = ''
-  document.getElementById('time').innerHTML = currentTime
-    
+  document.getElementById('time').innerHTML = currentTime  
   }	
 
   function playSound () {
 	let background = new Audio('./sound/background.wav');
-	//let background = new Audio('./sound/background2.wav');
    background.autoplay = true; 
 	background.play();
 } 
-
-
-
 
 
 const message =  `<h2>SET UP CHAT</h2>
@@ -61,8 +38,6 @@ btn.addEventListener('click', () => {
   btn.style.color = 'white';
   btn.type = 'text/css'
   btn.classList.add('button')
-  
-
 })
 
 btn.addEventListener('click', (e) => {
@@ -83,27 +58,6 @@ typing(message, 140).forEach(promise => {
     document.querySelector('.output').innerHTML = portion;
   });
 });
-
-  //typing(message)
 })
 
-
-
-
 getDateAndTime()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,25 +2,13 @@
     box-sizing: border-box;
     margin: 0px; 
     padding: 0px; 
-    
-    /* font-family: 'blue-screen'; */
 }
+
 body {
     background-color: blue;
-    color: white;
- 
-  
+    color: white;  
 }
 
-
-/* 
- position: relative;
-  border: 30px solid transparent;
-  border-image-source: url(bezel.png);
-  border-image-slice: 10 fill;
-  border-image-outset: 0;
-  overflow: hidden;
-  */ 
 @font-face {
     font-family: blue-screen;
     src: url('blueScreenFont.ttf');
@@ -31,15 +19,8 @@ body {
 }
 
 .inner-crt {
-  margin-left: 40px; 
-  margin-right: 40px; 
-  margin-top: 40px; 
-  margin-bottom: 40px;
- 
- }
-
-
-
+  margin: 0;
+}
 
 #headerContainer {
     display: flex;
@@ -220,16 +201,7 @@ body {
 
 .collapsible:after {
     width: 100vw;
-    /* Unicode character for "plus" sign (+) */
-
 }
-
-.active:after {
-    content: "\2796";
-    /* Unicode character for "minus" sign (-) */
-}
-
-
 
 .crt::before {
     content: " ";
