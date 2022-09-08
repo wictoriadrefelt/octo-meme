@@ -2,45 +2,27 @@
 const inputForm = document.getElementById('userNameInput')
 const messageToSend = document.getElementById('answerInput')
 const sendBtn = document.getElementById('sendBtn')
-const socket = io() 
+const socket = io()
 const sentMsg = document.getElementById('boxForChats')
 const chatContainer = document.getElementById('chatContainer')
 let roomContainer = document.getElementById('room')
 let msgContainer = document.getElementById
 let answerFromApi = undefined
 
-socket.on('message', (message) =>{
-    console.log(message)
+socket.on('message', (message) => {
     messageOutput(message)
-    
 })
 
-let answerInput = document.getElementById('answerInput') 
-
-
-function getCommands() {
-    if (answerInput.value.startsWith('/'))  {
-        // getCountry to div, or button 
-
-
-        // om commando börjar med slash + commando, 
-        // skicka ut värde för api-anrop 
-        // när värdet skrivs in, 
-        // skicka ut api anrop 
-       
-        
-    }
-}
+let answerInput = document.getElementById('answerInput')
 
 const onInput = (event) => {
 
-    if(event.target.value.startsWith('/')) {
-        console.log(event.target.value)
+    if (event.target.value.startsWith('/')) {
         let getCountry = document.getElementById('getApibtn')
         getCountry.innerText = '/getCountry'
     }
 }
-    document.getElementById("answerInput").addEventListener("input", onInput)
+document.getElementById("answerInput").addEventListener("input", onInput)
 
 
 // gets current url
@@ -49,76 +31,44 @@ let currentURL = document.location.href
 let room = 'startRoom'
 // gets username from params in url. 
 let objUrlParams = new URLSearchParams(window.location.search);
-let username = objUrlParams.get('username'); 
-console.log(username)
+let username = objUrlParams.get('username');
 
 
 socket.emit('joinRoom', { username, room });
 
 sendBtn.addEventListener('click', (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
     let msg = messageToSend.value
-    //sentMsg.innerHTML = msg
-    //console.log(msg)
-    //messageOutput(msg)
-    // empty field here 
-    
-    socket.emit('messageFromChat', msg)   
-    console.log(msg)
+    socket.emit('messageFromChat', msg)
     messageToSend.value = ""
 })
 
 
-
-
 const messageOutput = (message) => {
-    
+
     const sentMessage = document.createElement('div')
     sentMessage.classList.add('sentMsg')
-    // TODO add more here later, fix it tomorrow   
-    
     sentMessage.innerHTML = `<h3 class="sender">${message.userName} <h3 id="msg" class="numbers"> ${message.text} <h6 id="timestamp"> ${message.time}`
-    
-    console.log(message.text)
-    console.log(message.time)
-    
     sentMsg.appendChild(sentMessage)
 }
-
-/* document.getElementById('addRoomBtn').addEventListener('click', () => {
-    console.log('room');
-    let room = document.getElementById('roomInput').value
-    socket.emit('join', {roomToJoin: room})
-    joinedRoom = room
-    console.log(joinedRoom);
-    let roomInList = document.createElement('h3')
-    //roomInList.classList.add('text')
-    roomInList.innerText = joinedRoom
-    
-    roomContainer.append(roomInList)    
-}) */
 
 
 const getAnswerfromApi = () => {
     fetch("http://localhost:3007/api/").then((res) => {
-        console.log(res)
         return res.json()
     }).then((data) => {
         answerFromApi = data
-        //renderApiAnswer()
     }).catch((err) => {
         console.error('Fel i API', err)
     })
 }
 
 function renderApiAnswer() {
-    //let nationalityToRender = document.createElement('div')
     let nationalityToRender = document.getElementById('msg')
     nationalityToRender.innerHTML = ''
     nationalityToRender.innerHTML = answerFromApi.country[0].country_id
-    
-    
 }
+
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
