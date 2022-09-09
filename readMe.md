@@ -1,3 +1,5 @@
+Link to github: https://github.com/wictoriadrefelt/octo-meme
+
 To start project 
 
 type - 'npm i' in terminal
